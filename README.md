@@ -1,11 +1,10 @@
-
 # Git/Github : Du local au distant
 
 ## Initialisation
 
 1. Créer un token
 
-https://github.com/settings/tokens 
+https://github.com/settings/tokens
 
 2. Pour vérifier l'email :
 
@@ -32,7 +31,7 @@ https://github.com/settings/tokens
 
 8. Connecter le repo local à github
 
-`git remote add origin https://github.com/ton-nom/ton-repo.git` 
+`git remote add origin https://github.com/ton-nom/ton-repo.git`
 
 9. Vérifier la connexion
 
@@ -44,26 +43,27 @@ https://github.com/settings/tokens
 
 ## Ajouter un fichier à l'index/staging area
 
-Pour ajouter un fichier précis 
+Pour ajouter un fichier précis
 
 `git add README.md`
 
 Pour ajouter tout le contenu du repo
 
-`git remote set-url origin adresse_url_correcte_ici`
+`git add .`
 
 ## Envoyer l'index vers le local repository
-
-`git commit`
 
 `git commit -m "Ajout du fichier readme"`
 
 ## Envoyer le code vers GitHub
 
-`git push -u origin main` 
+`git push`
 
-Se connecter si besoin 
+Si premier push, il faut préciser où envoyer les fichiers :
 
+`git push -u origin main`
+
+Se connecter si besoin
 
 ## Le fichier .gitignore
 
