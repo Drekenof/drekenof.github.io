@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    background: #1e1e1e;
+}
+
+.page {
+    max-width: 800px;
+    margin: 20px auto 0;
+    padding: 0px;
+    background: #2a2a2a;
+}
+
+.page-content {
+    margin: 20px auto 0;
+    padding: 20px;
+}
+
+.img-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+h1{
+    font-size: 30px;
+    text-align: left;
+    color: hsl(0, 10%, 81%);
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 80px;
+}
+
+h2{
+    font-size: 20px;
+    text-align: left;
+    color: hsl(0, 10%, 81%);
+    padding-top: 20px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+}
+
+h3{
+    font-size: 16px;
+    text-align: left;
+    color: hsl(0, 10%, 81%);
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+
+h4{
+    font-size: 12px;
+    text-align: left;
+    color: hsl(0, 10%, 81%);
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+}
+
+p{
+    font-size: 16px;
+    text-align: left;
+    font-family: Helvetica, sans-serif;
+    color: hsl(0, 10%, 81%)
+}
