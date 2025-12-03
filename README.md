@@ -1,6 +1,8 @@
-# Git/Github : Du local au distant
+# Git/Github
 
-## Initialisation
+## Du local au distant
+
+### Initialisation
 
 1. Créer un token
 
@@ -41,7 +43,7 @@ https://github.com/settings/tokens
 
 `git remote set-url origin adresse_url_correcte_ici`
 
-## Ajouter un fichier à l'index/staging area
+### Ajouter un fichier à l'index/staging area
 
 Pour ajouter un fichier précis
 
@@ -51,11 +53,11 @@ Pour ajouter tout le contenu du repo
 
 `git add .`
 
-## Envoyer l'index vers le local repository
+### Envoyer l'index vers le local repository
 
 `git commit -m "Ajout du fichier readme"`
 
-## Envoyer le code vers GitHub
+### Envoyer le code vers GitHub
 
 `git push`
 
@@ -65,7 +67,7 @@ Si premier push, il faut préciser où envoyer les fichiers :
 
 Se connecter si besoin
 
-## Le fichier .gitignore
+### Le fichier .gitignore
 
 Tu peux ignorer des fichiers individuels (secret.txt).
 
@@ -73,7 +75,7 @@ Tu peux ignorer des extensions de fichiers (*.log).
 
 Tu peux ignorer des dossiers entiers (node_modules/).
 
-# Pour publier d'une branche main vers une branche publique
+### Pour publier d'une branche main privé vers une branche publique
 
 * Ouvrir le terminal intégré de VS Code à la racine du dépôt.
 * Vérifier et sauvegarder l’état de `main` (s’assurer qu’il n’y a rien de non committé)
@@ -156,20 +158,19 @@ git remote add public <URL_PUBLIC>                # si nécessaire
 git fetch --all
 git push public main:public-branch-wsc -u --force-with-lease
 
+## Récupérer un repo distant : Git Clone
 
-# Récupérer un repo distant : Git Clone
+récupérer le lien du repo sur github
 
-## récupérer le lien du repo sur github
+dans le terminal de commande / vscode, aller dans le dossier où sera télécharger le repo sous forme de dossier :
 
-dans le terminal de commande / vscode, aller dans le dossier où sera télécharger le repo sous forme de dossier : 
+cd disk:\\\PATH1\\\PATH2... (rappel : "cd .." pour remonter dans le chemin actuel)
 
-cd disk:\\\PATH1\\\PATH2...
-
-puis : `git clone url_du_repo` 
+puis : `git clone url_du_repo`
 
 Git va télécharger le repo
 
-pour lister les éléments présent : 
+pour lister les éléments présent :
 
 `ls`
 
@@ -178,32 +179,96 @@ ou
 `dir`
 
 
-## Pour vérifier les branches disponibles :
+## Gestion des branches
 
-Pour voir toutes les branches (locales, et distantes) : 
+### Voir les branches
+
+Pour voir toutes les branches (locales, et distantes) :
 
 `git branch -a`
 
-Pour voir toutes les branches distantes : 
+Pour voir toutes les branches distantes :
 
 `git branch -r`
 
-
 Travailler avec les branches
 
-Pour créer une branche : 
+Pour créer une branche :
 
 `git branch nom_de_la_branche`
 
-Pour basculer sur la nouvelle branche : 
+Pour basculer sur la nouvelle branche :
 
 `git checkout nom_de_la_branche_ou_je_veux_aller`
 
-Pour créer ET basculer en même temps sur la branche : 
+Pour créer ET basculer en même temps sur la branche :
 
-`git checkout -b nom_de_la_branche_que_je_créé` 
-
-
+`git checkout -b nom_de_la_branche_que_je_créé`
 
 
-# pull request
+### Pull request
+
+permet de fusionner une branche au main ou à un autre branche
+
+#### Sur github
+
+##### Créer la demande
+
+Aller dans le repo > pull requests > Create a pull request
+
+base:main --> la branche qui va recevoir les modifications
+
+compare:new_feature --> la branche qui va être fusionnée à la base
+
+compléter le texte avec 3 sections : Modifications apportées + Contexte + Action demandée 
+
+CTA Create pull request
+
+##### Faire la fusion
+
+Aller dans le repo > pull requests > cta merge pull request
+
+##### Supprimer la branche
+
+Après le merge et un message de succès ("pull requesgt successfully merged and closed), CTA "Delete branch"
+
+
+## Gestion des conflits
+
+
+| commande                  | action                                             | quand utiliser                                 |
+| ------------------------- | -------------------------------------------------- | ---------------------------------------------- |
+| git diff                  | voir TES modif en local                            | avant git add                                  |
+| git diff -cached          | voir differences entre index et dernier commit     | avant git commit                               |
+| git fetch                 | récupérer les MAJ de github sans les appliquer   | avant git pull pour voir ce qui a changé      |
+| git diff main origin/main | comparrer la branche locale et la version distance | après un git fetch pour voir les différences |
+| git pull                  | récupérer et appliquer les changement            | pour synchroniser le code avec github          |
+
+### 1 - Git fetch : Vérifier si GitHub a des mises à jour sans toucher à ton code
+
+Je veux voir s'il y a du nouveau sur GitHub, mais sans écraser mon travail local ni regarder les différences, j'utilise donc `git fetch`.
+
+
+### 2 - Vérifier les modifications en local : git diff
+
+`git diff` est une commande qui te permet de voir les différences entre deux sources :
+
+* Entre ton espace de travail (working directory) et l'index (staging area)
+* Entre l'index et le dernier commit
+* Entre deux commits
+* Entre deux branches
+
+Si après avoir regardé les changements, tu veux les récupérer et les fusionner dans ton code, tu fais :
+
+`git pull origin main`
+
+**Que fait git pull ?**
+
+Il récupère les modifications depuis GitHub et les applique à ton code local.
+
+**Utilisation ?**
+
+Quand tu veux mettre à jour ton repo local avec les nouvelles modifications de ton collègue.
+
+
+### 3 - Git merge : fusionner des branches en ligne de commande
